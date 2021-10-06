@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- font awesome cdn link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    {{!-- navbar --}}
+    {{>navbar}}
+
+    {{!-- main-header --}}
+    <div class="container-fluid main_header">
+    <div class="row">
+        <div class="col-md-10 col-12 mx-auto ">
+           <div class="main_content">
+               <form action="" class="temp_form">
+                   <input type="text" id="cityname" placeholder="Enter city name" autocomplete="off">
+                   <input type="submit" name="" value="Search" id="submitbtn">
+               </form>
+            </div> 
+
+            <div class="tempinformation">
+                <div class="top_layer">
+                    <p id="day">Tuesday</p><p id="today_date">13 OCT</p>
+                </div>
+                <div class="main_layer ">
+                    <p id="city_name">Get Output Here</p>
+                    <div class="last_layer ">
+                        <p id="temp_real_val"><span>0</span><sup>o</sup>C</p>
+                        <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+   
+
+
+     <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="js/main.js"></script>
+<script>
+    
+ {{!-- const today_date=document.getElementById("today_date");  --}}
+
+ const getcurrentday= ()=>{
+            var weekday = new Array(7);
+weekday[0] = "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+            let curTime=new Date();
+             yesday=(weekday[curTime.getDay()]);
+             console.log(yesday);
+            let day=document.getElementById('day');
+            day.innerText = yesday;
+        }
+        getcurrentday();
+
+        const getcurrentdatemonth=()=>{
+            var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "Apr";
+month[4] = "May";
+month[5] = "Jun";
+month[6] = "Jul";
+month[7] = "Aug";
+month[8] = "Sep";
+month[9] = "Oct";
+month[10] = "Nov";
+month[11] = "Dec";
+            var now=new Date();
+            var months=month[now.getMonth()]; 
+            var date=now.getDate();
+            document.getElementById("today_date").innerText=`${date} ${months}`;
+            }
+            getcurrentdatemonth();
+</script>
+</body>
+</html>
